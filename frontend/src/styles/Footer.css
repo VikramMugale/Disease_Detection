@@ -1,0 +1,244 @@
+/* Footer Styling */
+.footer {
+  background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #1b4332 100%);
+  color: white;
+  margin-top: auto;
+  border-top: 4px solid #d33a1a;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 30px;
+}
+
+/* Accuracy Badge Section */
+.footer-accuracy {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.accuracy-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(211, 58, 26, 0.15) 0%, rgba(255, 107, 53, 0.15) 100%);
+  border: 2px solid #ff6b35;
+  border-radius: 16px;
+  padding: 24px 48px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.accuracy-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.accuracy-badge:hover::before {
+  left: 100%;
+}
+
+.accuracy-badge:hover {
+  border-color: #d33a1a;
+  box-shadow: 0 8px 24px rgba(211, 58, 26, 0.2);
+  transform: translateY(-4px);
+}
+
+.badge-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ff9f43;
+  opacity: 0.9;
+}
+
+.badge-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6b35 0%, #d33a1a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Courier New', monospace;
+}
+
+.badge-unit {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #52b788;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+}
+
+.accuracy-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Footer Divider */
+.footer-divider {
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    #ff6b35 10%, 
+    #52b788 50%, 
+    #ff9f43 75%, 
+    transparent);
+  margin: 40px 0;
+  border-radius: 2px;
+}
+
+/* Disclaimers Section */
+.footer-disclaimers {
+  text-align: center;
+}
+
+.disclaimer-item {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.disclaimer-main {
+  background: rgba(82, 183, 136, 0.15);
+  border-left: 4px solid #52b788;
+  color: rgba(255, 255, 255, 0.95);
+  font-style: italic;
+}
+
+.disclaimer-main:hover {
+  background: rgba(82, 183, 136, 0.25);
+  border-left-color: #2d6a4f;
+  transform: translateX(8px);
+}
+
+.disclaimer-warning {
+  background: rgba(255, 159, 67, 0.2);
+  border-left: 4px solid #ff9f43;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+}
+
+.disclaimer-warning:hover {
+  background: rgba(255, 159, 67, 0.3);
+  border-left-color: #ff6b35;
+  transform: translateX(8px);
+}
+
+/* Bottom Bar */
+.footer-bar {
+  background: linear-gradient(90deg, rgba(211, 58, 26, 0.1) 0%, rgba(82, 183, 136, 0.1) 100%);
+  padding: 20px 30px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bar p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 60px;
+    padding-bottom: 0;
+  }
+
+  .footer-content {
+    padding: 40px 20px;
+  }
+
+  .accuracy-badge {
+    padding: 20px 30px;
+  }
+
+  .badge-value {
+    font-size: 2rem;
+  }
+
+  .badge-label,
+  .badge-unit {
+    font-size: 0.8rem;
+  }
+
+  .accuracy-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .disclaimer-item {
+    font-size: 0.9rem;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+  }
+
+  .footer-divider {
+    margin: 30px 0;
+  }
+
+  .footer-bar p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    padding: 30px 15px;
+  }
+
+  .accuracy-badge {
+    padding: 16px 20px;
+  }
+
+  .badge-value {
+    font-size: 1.8rem;
+  }
+
+  .badge-label,
+  .badge-unit {
+    font-size: 0.75rem;
+  }
+
+  .accuracy-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .disclaimer-item {
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+
+  .footer-divider {
+    margin: 25px 0;
+  }
+
+  .footer-bar {
+    padding: 16px 15px;
+  }
+
+  .footer-bar p {
+    font-size: 0.8rem;
+  }
+}

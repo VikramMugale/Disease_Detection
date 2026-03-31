@@ -1,0 +1,127 @@
+{
+  "Healthy": {
+    "en": {
+      "name": "Healthy",
+      "cause": "The fruit is healthy with no visible disease.",
+      "prevention": "Maintain proper irrigation and balanced nutrition.",
+      "remedy": "No treatment required."
+    },
+    "hi": {
+      "name": "स्वस्थ",
+      "cause": "फल स्वस्थ है और कोई रोग नहीं है।",
+      "prevention": "सही सिंचाई और पोषण बनाए रखें।",
+      "remedy": "कोई उपचार आवश्यक नहीं।"
+    },
+    "mr": {
+      "name": "निरोगी",
+      "cause": "फळ निरोगी आहे.",
+      "prevention": "योग्य पाणी व पोषण राखा.",
+      "remedy": "उपचाराची गरज नाही."
+    }
+  },
+
+  "Bacterial_Blight": {
+    "en": {
+      "name": "Bacterial Blight",
+      "cause": "Caused by bacterial infection spreading through water and wounds.",
+      "prevention": "Avoid water splash and prune infected branches.",
+      "remedy": "Apply copper-based bactericide spray."
+    },
+    "hi": {
+      "name": "बैक्टीरियल ब्लाइट",
+      "cause": "यह बैक्टीरिया से फैलने वाला रोग है।",
+      "prevention": "पानी के छींटों से बचें और संक्रमित शाखाएं हटाएं।",
+      "remedy": "कॉपर आधारित दवा का छिड़काव करें।"
+    },
+    "mr": {
+      "name": "जीवाणु झुलशा",
+      "cause": "हा जीवाणूजन्य रोग आहे.",
+      "prevention": "पाण्याचे उडणे टाळा व संक्रमित फांद्या काढा.",
+      "remedy": "कॉपर फवारणी करा."
+    }
+  },
+
+  "Alternaria": {
+    "en": {
+      "name": "Alternaria",
+      "cause": "Fungal infection caused by humid weather.",
+      "prevention": "Ensure air circulation and remove infected leaves.",
+      "remedy": "Spray fungicide like Mancozeb."
+    },
+    "hi": {
+      "name": "अल्टरनेरिया",
+      "cause": "नमी के कारण फंगल संक्रमण।",
+      "prevention": "हवा का प्रवाह रखें और संक्रमित पत्तियां हटाएं।",
+      "remedy": "मैनकोजेब फफूंदनाशक का उपयोग करें।"
+    },
+    "mr": {
+      "name": "अल्टरनेरिया",
+      "cause": "आर्द्रतेमुळे बुरशीजन्य रोग.",
+      "prevention": "हवेचा प्रवाह ठेवा.",
+      "remedy": "मॅन्कोझेब फवारणी करा."
+    }
+  },
+
+  "Anthracnose": {
+    "en": {
+      "name": "Anthracnose",
+      "cause": "Fungal spores infect fruit surface.",
+      "prevention": "Keep orchard dry and remove fallen debris.",
+      "remedy": "Apply systemic fungicide."
+    },
+    "hi": {
+      "name": "एन्थ्रेक्नोज",
+      "cause": "फंगल बीजाणु फल को संक्रमित करते हैं।",
+      "prevention": "बाग सूखी रखें और गिरे अवशेष हटाएं।",
+      "remedy": "सिस्टमिक फफूंदनाशक उपयोग करें।"
+    },
+    "mr": {
+      "name": "कला ओत",
+      "cause": "बुरशीमुळे संसर्ग होतो.",
+      "prevention": "बाग कोरडी ठेवा.",
+      "remedy": "सिस्टमिक फवारणी करा."
+    }
+  },
+
+  "Cercospora": {
+    "en": {
+      "name": "Cercospora",
+      "cause": "Leaf spot fungus infection.",
+      "prevention": "Avoid overcrowding plants.",
+      "remedy": "Use protective fungicide spray."
+    },
+    "hi": {
+      "name": "सर्कोस्पोरा",
+      "cause": "पत्ती धब्बा फंगल रोग।",
+      "prevention": "पौधों की दूरी बनाए रखें।",
+      "remedy": "फफूंदनाशक छिड़काव करें।"
+    },
+    "mr": {
+      "name": "सर्कोस्पोरा",
+      "cause": "पानांवरील बुरशीजन्य रोग.",
+      "prevention": "झाडांमध्ये अंतर ठेवा.",
+      "remedy": "फवारणी करा."
+    }
+  },
+
+  "Not_Pomegranate": {
+    "en": {
+      "name": "Not a Pomegranate",
+      "cause": "The uploaded image is not a pomegranate fruit.",
+      "prevention": "Upload only pomegranate fruit images.",
+      "remedy": "No agricultural advice available."
+    },
+    "hi": {
+      "name": "अनार नहीं",
+      "cause": "यह अनार का फल नहीं है।",
+      "prevention": "केवल अनार की तस्वीर अपलोड करें।",
+      "remedy": "कोई सलाह उपलब्ध नहीं।"
+    },
+    "mr": {
+      "name": "डाळिंब नाही",
+      "cause": "हे डाळिंब नाही.",
+      "prevention": "फक्त डाळिंबाचा फोटो अपलोड करा.",
+      "remedy": "सल्ला उपलब्ध नाही."
+    }
+  }
+}
