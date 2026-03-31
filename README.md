@@ -93,35 +93,6 @@ The frontend will start on `http://localhost:5173`
    - Prevention methods
    - Treatment recommendations
 
-## 📁 Project Structure
-
-```
-├── backend/
-│   ├── app/
-│   │   ├── __init__.py
-│   │   ├── predictor.py      # YOLO model prediction logic
-│   │   ├── routes.py         # Flask API routes
-│   │   ├── utils.py          # Utility functions
-│   │   └── disease_db.json   # Disease information database
-│   ├── model/
-│   │   ├── best.pt           # Trained YOLO model
-│   │   └── best0.pt          # Alternative model
-│   ├── uploads/              # Uploaded images storage
-│   ├── config.py             # Configuration settings
-│   ├── requirements.txt      # Python dependencies
-│   └── run.py                # Flask application entry point
-├── frontend/
-│   ├── public/
-│   ├── src/
-│   │   ├── components/       # React components
-│   │   ├── context/          # React context for state management
-│   │   ├── hooks/            # Custom React hooks
-│   │   ├── pages/            # Page components
-│   │   ├── services/         # API service functions
-│   │   └── styles/           # CSS stylesheets
-│   ├── package.json          # Node.js dependencies
-│   └── vite.config.js        # Vite configuration
-└── README.md
 ```
 
 ## 🤝 Contributing
@@ -132,17 +103,3 @@ The frontend will start on `http://localhost:5173`
 4. Push to the branch (`git push origin feature/AmazingFeature`)
 5. Open a Pull Request
 
-## 📄 License
-
-This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
-
-## 🙏 Acknowledgments
-
-- YOLOv11 model trained on pomegranate disease dataset
-- Disease information sourced from agricultural research
-- Icons and UI inspiration from various open-source projects
-
-## 📞 Support
-
-If you encounter any issues or have questions, please open an issue on GitHub.</content>
-<parameter name="filePath">c:\Users\Abhishek Mugale\OneDrive\Desktop\colab\README.md
