@@ -1,0 +1,2276 @@
+# Pomegranate Health Analyzer - Project Context
+
+This file contains the directory structure and the contents of all relevant source code files for the project.
+
+## Directory Structure
+
+```
+./
+    .gitignore
+    README.md
+    backend/
+        .gitignore
+        config.py
+        requirements.txt
+        run.py
+        wsgi.py
+        app/
+            disease_db.json
+            predictor.py
+            routes.py
+            utils.py
+            __init__.py
+    frontend/
+        .gitignore
+        eslint.config.js
+        index.html
+        package.json
+        README.md
+        vite.config.js
+        public/
+        src/
+            App.css
+            App.jsx
+            index.css
+            main.jsx
+            styles.css
+            assets/
+            components/
+                Footer.jsx
+                LanguageSelect.jsx
+                Loader.jsx
+                ResultCard.jsx
+                UploadForm.jsx
+            context/
+                LanguageContext.jsx
+            hooks/
+                useLanguage.js
+            pages/
+                Home.jsx
+            services/
+                api.js
+            styles/
+                Footer.css
+```
+
+## Source Code
+
+### File: .\.gitignore
+```
+/backend.zip
+```
+
+### File: .\README.md
+```markdown
+# Pomegranate Health Analyzer
+
+An AI-powered React Flask app for detecting diseases in pomegranate fruits using computer vision and machine learning.
+
+## 🌟 Features
+
+- **Image Upload**: Upload pomegranate fruit images for analysis
+- **AI Disease Detection**: Uses YOLOv11 model for accurate disease identification
+- **Multi-language Support**: Get disease information in English, Hindi, and Marathi
+- **Real-time Results**: Instant prediction with confidence scores
+- **Responsive Design**: Works seamlessly on desktop and mobile devices
+
+## 🛠️ Technologies Used
+
+### Backend
+- **Flask**: Web framework for API development
+- **Ultralytics YOLOv11**: Deep learning model for object detection
+- **OpenCV**: Computer vision library
+- **Pillow**: Image processing
+- **NumPy**: Numerical computing
+
+### Frontend
+- **React 19**: Modern JavaScript library for UI
+- **Vite**: Fast build tool and development server
+- **CSS3**: Styling and animations
+
+## 🚀 Installation
+
+### Prerequisites
+- Python 3.8+
+- Node.js 16+
+- Git
+
+### Model Setup
+
+**Note**: The trained YOLOv11 model files (`best.pt` and `best0.pt`) are not included in this repository due to file size limitations. You have two options:
+
+1. **Download Pre-trained Models** (Recommended):
+   - Download the YOLOv11 model file from: [https://drive.google.com/file/d/1CudrLkLOLa5zNZFZiVjtqSPSHUdfZ7XM/view?usp=drive_link](https://drive.google.com/file/d/1CudrLkLOLa5zNZFZiVjtqSPSHUdfZ7XM/view?usp=drive_link)
+   - Place the downloaded `best.pt` file in the `backend/model/` directory
+   - If you have an alternative model (`best0.pt`), place it there as well
+
+2. **Train Your Own Model**:
+   - Prepare a dataset of pomegranate images with disease annotations
+   - Use Ultralytics to train a YOLOv11 model:
+     ```bash
+     pip install ultralytics
+     yolo train data=your_dataset.yaml model=yolo11n.pt epochs=100
+     ```
+   - Save the trained model as `best.pt` in `backend/model/`
+
+### Backend Setup
+
+1. Navigate to the backend directory:
+   ```bash
+   cd backend
+   ```
+
+2. Create a virtual environment:
+   ```bash
+   python -m venv venv
+   source venv/bin/activate  # On Windows: venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+4. Set up environment variables (create `.env` file):
+   ```env
+   FLASK_ENV=development
+   FLASK_DEBUG=True
+   ```
+
+5. Run the backend server:
+   ```bash
+   python run.py
+   ```
+
+The backend will start on `http://localhost:5000`
+
+### Frontend Setup
+
+1. Navigate to the frontend directory:
+   ```bash
+   cd frontend
+   ```
+
+2. Install dependencies:
+   ```bash
+   npm install
+   ```
+
+3. Start the development server:
+   ```bash
+   npm run dev
+   ```
+
+The frontend will start on `http://localhost:5173`
+
+## 📖 Usage
+
+1. Open your browser and go to `http://localhost:5173`
+2. Select your preferred language (English, Hindi, or Marathi)
+3. Upload a clear image of a pomegranate fruit
+4. View the disease detection results with:
+   - Disease name
+   - Confidence percentage
+   - Cause of the disease
+   - Prevention methods
+   - Treatment recommendations
+
+## 📁 Project Structure
+
+```
+├── backend/
+│   ├── app/
+│   │   ├── __init__.py
+│   │   ├── predictor.py      # YOLO model prediction logic
+│   │   ├── routes.py         # Flask API routes
+│   │   ├── utils.py          # Utility functions
+│   │   └── disease_db.json   # Disease information database
+│   ├── model/
+│   │   ├── best.pt           # Trained YOLO model
+│   │   └── best0.pt          # Alternative model
+│   ├── uploads/              # Uploaded images storage
+│   ├── config.py             # Configuration settings
+│   ├── requirements.txt      # Python dependencies
+│   └── run.py                # Flask application entry point
+├── frontend/
+│   ├── public/
+│   ├── src/
+│   │   ├── components/       # React components
+│   │   ├── context/          # React context for state management
+│   │   ├── hooks/            # Custom React hooks
+│   │   ├── pages/            # Page components
+│   │   ├── services/         # API service functions
+│   │   └── styles/           # CSS stylesheets
+│   ├── package.json          # Node.js dependencies
+│   └── vite.config.js        # Vite configuration
+└── README.md
+```
+
+## 🤝 Contributing
+
+1. Fork the repository
+2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
+
+## 📄 License
+
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## 🙏 Acknowledgments
+
+- YOLOv11 model trained on pomegranate disease dataset
+- Disease information sourced from agricultural research
+- Icons and UI inspiration from various open-source projects
+
+## 📞 Support
+
+If you encounter any issues or have questions, please open an issue on GitHub.</content>
+<parameter name="filePath">c:\Users\Abhishek Mugale\OneDrive\Desktop\colab\README.md
+```
+
+### File: .\backend\.gitignore
+```
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+env/
+venv/
+ENV/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Flask
+instance/
+.webassets-cache
+
+# Uploads
+uploads/
+
+# Environment
+.env
+.env.local
+.env.*.local
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Model files (optional - comment out if you want to track them)
+model/*.pt
+
+```
+
+### File: .\backend\config.py
+```python
+import os
+from dotenv import load_dotenv
+
+load_dotenv()
+
+BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+MODEL_PATH = os.path.join(BASE_DIR, "model", "best.pt")
+UPLOAD_FOLDER = os.path.join(BASE_DIR, "uploads")
+
+ALLOWED_EXTENSIONS = {"jpg", "jpeg", "png"}
+
+DEBUG = True
+
+```
+
+### File: .\backend\requirements.txt
+```
+flask==3.0.2
+flask-cors==4.0.0
+ultralytics==8.3.0
+opencv-python-headless==4.9.0.80
+pillow==10.2.0
+numpy==1.26.4
+gunicorn==21.2.0
+python-dotenv==1.0.1
+
+```
+
+### File: .\backend\run.py
+```python
+from app import create_app
+
+app = create_app()
+
+if __name__ == "__main__":
+    app.run(host="0.0.0.0", port=5000, debug=True)
+
+```
+
+### File: .\backend\wsgi.py
+```python
+from app import create_app
+
+app = create_app()
+
+if __name__ == "__main__":
+    app.run()
+```
+
+### File: .\backend\app\disease_db.json
+```json
+{
+  "Healthy": {
+    "en": {
+      "name": "Healthy",
+      "cause": "The fruit is healthy with no visible disease.",
+      "prevention": "Maintain proper irrigation and balanced nutrition.",
+      "remedy": "No treatment required."
+    },
+    "hi": {
+      "name": "स्वस्थ",
+      "cause": "फल स्वस्थ है और कोई रोग नहीं है।",
+      "prevention": "सही सिंचाई और पोषण बनाए रखें।",
+      "remedy": "कोई उपचार आवश्यक नहीं।"
+    },
+    "mr": {
+      "name": "निरोगी",
+      "cause": "फळ निरोगी आहे.",
+      "prevention": "योग्य पाणी व पोषण राखा.",
+      "remedy": "उपचाराची गरज नाही."
+    }
+  },
+
+  "Bacterial_Blight": {
+    "en": {
+      "name": "Bacterial Blight",
+      "cause": "Caused by bacterial infection spreading through water and wounds.",
+      "prevention": "Avoid water splash and prune infected branches.",
+      "remedy": "Apply copper-based bactericide spray."
+    },
+    "hi": {
+      "name": "बैक्टीरियल ब्लाइट",
+      "cause": "यह बैक्टीरिया से फैलने वाला रोग है।",
+      "prevention": "पानी के छींटों से बचें और संक्रमित शाखाएं हटाएं।",
+      "remedy": "कॉपर आधारित दवा का छिड़काव करें।"
+    },
+    "mr": {
+      "name": "जीवाणु झुलशा",
+      "cause": "हा जीवाणूजन्य रोग आहे.",
+      "prevention": "पाण्याचे उडणे टाळा व संक्रमित फांद्या काढा.",
+      "remedy": "कॉपर फवारणी करा."
+    }
+  },
+
+  "Alternaria": {
+    "en": {
+      "name": "Alternaria",
+      "cause": "Fungal infection caused by humid weather.",
+      "prevention": "Ensure air circulation and remove infected leaves.",
+      "remedy": "Spray fungicide like Mancozeb."
+    },
+    "hi": {
+      "name": "अल्टरनेरिया",
+      "cause": "नमी के कारण फंगल संक्रमण।",
+      "prevention": "हवा का प्रवाह रखें और संक्रमित पत्तियां हटाएं।",
+      "remedy": "मैनकोजेब फफूंदनाशक का उपयोग करें।"
+    },
+    "mr": {
+      "name": "अल्टरनेरिया",
+      "cause": "आर्द्रतेमुळे बुरशीजन्य रोग.",
+      "prevention": "हवेचा प्रवाह ठेवा.",
+      "remedy": "मॅन्कोझेब फवारणी करा."
+    }
+  },
+
+  "Anthracnose": {
+    "en": {
+      "name": "Anthracnose",
+      "cause": "Fungal spores infect fruit surface.",
+      "prevention": "Keep orchard dry and remove fallen debris.",
+      "remedy": "Apply systemic fungicide."
+    },
+    "hi": {
+      "name": "एन्थ्रेक्नोज",
+      "cause": "फंगल बीजाणु फल को संक्रमित करते हैं।",
+      "prevention": "बाग सूखी रखें और गिरे अवशेष हटाएं।",
+      "remedy": "सिस्टमिक फफूंदनाशक उपयोग करें।"
+    },
+    "mr": {
+      "name": "कला ओत",
+      "cause": "बुरशीमुळे संसर्ग होतो.",
+      "prevention": "बाग कोरडी ठेवा.",
+      "remedy": "सिस्टमिक फवारणी करा."
+    }
+  },
+
+  "Cercospora": {
+    "en": {
+      "name": "Cercospora",
+      "cause": "Leaf spot fungus infection.",
+      "prevention": "Avoid overcrowding plants.",
+      "remedy": "Use protective fungicide spray."
+    },
+    "hi": {
+      "name": "सर्कोस्पोरा",
+      "cause": "पत्ती धब्बा फंगल रोग।",
+      "prevention": "पौधों की दूरी बनाए रखें।",
+      "remedy": "फफूंदनाशक छिड़काव करें।"
+    },
+    "mr": {
+      "name": "सर्कोस्पोरा",
+      "cause": "पानांवरील बुरशीजन्य रोग.",
+      "prevention": "झाडांमध्ये अंतर ठेवा.",
+      "remedy": "फवारणी करा."
+    }
+  },
+
+  "Not_Pomegranate": {
+    "en": {
+      "name": "Not a Pomegranate",
+      "cause": "The uploaded image is not a pomegranate fruit.",
+      "prevention": "Upload only pomegranate fruit images.",
+      "remedy": "No agricultural advice available."
+    },
+    "hi": {
+      "name": "अनार नहीं",
+      "cause": "यह अनार का फल नहीं है।",
+      "prevention": "केवल अनार की तस्वीर अपलोड करें।",
+      "remedy": "कोई सलाह उपलब्ध नहीं।"
+    },
+    "mr": {
+      "name": "डाळिंब नाही",
+      "cause": "हे डाळिंब नाही.",
+      "prevention": "फक्त डाळिंबाचा फोटो अपलोड करा.",
+      "remedy": "सल्ला उपलब्ध नाही."
+    }
+  }
+}
+
+```
+
+### File: .\backend\app\predictor.py
+```python
+import sys
+import os
+from ultralytics import YOLO
+import threading
+
+# Add parent directory to Python path to resolve config imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from config import MODEL_PATH
+
+# Load model once at startup
+_model = None
+_lock = threading.Lock()
+
+
+def load_model():
+    global _model
+    if _model is None:
+        with _lock:
+            if _model is None:
+                _model = YOLO(MODEL_PATH)
+    return _model
+
+
+def predict_image(image_path):
+    model = load_model()
+    results = model.predict(image_path, conf=0.4, verbose=False)[0]
+
+    # No detections
+    if len(results.boxes) == 0:
+        return {
+            "label": "Unknown",
+            "confidence": 0.0
+        }
+
+    # Prefer the detection with highest confidence instead of taking the first box
+    try:
+        confs = results.boxes.conf
+        clss = results.boxes.cls
+        # convert to numpy if tensors
+        if hasattr(confs, "cpu"):
+            conf_vals = confs.cpu().numpy()
+        else:
+            conf_vals = confs.numpy()
+
+        best_idx = int(conf_vals.argmax())
+        cls = int(clss[best_idx])
+        conf = float(conf_vals[best_idx])
+    except Exception:
+        # Fallback to first box if something unexpected in results shape
+        cls = int(results.boxes.cls[0])
+        conf = float(results.boxes.conf[0])
+
+    # Resolve label name for best prediction
+    try:
+        label = model.names[int(cls)]
+    except Exception:
+        label = model.names.get(int(cls), str(int(cls)))
+
+    # Build top-k predictions (include best as primary for backward compatibility)
+    preds = []
+    try:
+        # convert to numpy arrays if needed
+        if hasattr(confs, "cpu"):
+            all_confs = confs.cpu().numpy()
+        else:
+            all_confs = confs.numpy()
+
+        if hasattr(clss, "cpu"):
+            all_clss = clss.cpu().numpy()
+        else:
+            all_clss = clss.numpy()
+
+        order = all_confs.argsort()[::-1]
+        top_k = min(3, len(order))
+        for i in range(top_k):
+            idx = int(order[i])
+            c = int(all_clss[idx])
+            cf = float(all_confs[idx])
+            try:
+                name = model.names[c]
+            except Exception:
+                name = model.names.get(c, str(c))
+            preds.append({"label": name, "confidence": round(cf * 100, 2)})
+    except Exception:
+        # fallback: just return the selected best
+        preds.append({"label": label, "confidence": round(conf * 100, 2)})
+
+    print("MODEL NAMES:", model.names)
+    print(f"Selected class {cls} with confidence {conf}")
+    print("Top predictions:", preds)
+
+    return {
+        "label": label,
+        "confidence": round(conf * 100, 2),
+        "predictions": preds
+    }
+
+```
+
+### File: .\backend\app\routes.py
+```python
+import os
+import json
+import sys
+from flask import Blueprint, request, jsonify
+from werkzeug.utils import secure_filename
+
+# Add parent directory to Python path to resolve config imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from config import UPLOAD_FOLDER, ALLOWED_EXTENSIONS
+from app.predictor import predict_image
+
+routes = Blueprint("routes", __name__)
+
+# Load disease database once
+DB_PATH = os.path.join(os.path.dirname(__file__), "disease_db.json")
+with open(DB_PATH, "r", encoding="utf-8") as f:
+    DISEASE_DB = json.load(f)
+
+
+def allowed_file(filename):
+    return "." in filename and filename.rsplit(".", 1)[1].lower() in ALLOWED_EXTENSIONS
+
+
+@routes.route("/predict", methods=["POST"])
+def predict():
+    if "file" not in request.files:
+        return jsonify({"error": "No file uploaded"}), 400
+
+    file = request.files["file"]
+    language = request.form.get("language", "en")
+
+    if file.filename == "":
+        return jsonify({"error": "Empty filename"}), 400
+
+    if not allowed_file(file.filename):
+        return jsonify({"error": "Invalid file type"}), 400
+
+    os.makedirs(UPLOAD_FOLDER, exist_ok=True)
+
+    filename = secure_filename(file.filename)
+    filepath = os.path.join(UPLOAD_FOLDER, filename)
+    file.save(filepath)
+
+    prediction = predict_image(filepath)
+    label = prediction["label"]
+    confidence = prediction["confidence"]
+
+    disease_info = DISEASE_DB.get(label, {})
+    lang_info = disease_info.get(language, {})
+
+    response = {
+        "disease": label,
+        "diseaseName": lang_info.get("name", label.replace("_", " ")),
+        "confidence": confidence,
+        "cause": lang_info.get("cause", "N/A"),
+        "prevention": lang_info.get("prevention", "N/A"),
+        "remedy": lang_info.get("remedy", "N/A"),
+        "language": language
+    }
+
+    return jsonify(response)
+
+```
+
+### File: .\backend\app\utils.py
+```python
+import os
+import uuid
+
+
+def generate_unique_filename(filename):
+    """
+    Prevent filename collisions
+    """
+    ext = filename.rsplit(".", 1)[-1]
+    return f"{uuid.uuid4().hex}.{ext}"
+
+
+def safe_delete(filepath):
+    """
+    Delete file safely if exists
+    """
+    try:
+        if os.path.exists(filepath):
+            os.remove(filepath)
+    except Exception:
+        pass
+
+```
+
+### File: .\backend\app\__init__.py
+```python
+from flask import Flask
+from flask_cors import CORS
+import sys
+import os
+
+# Add parent directory to Python path to resolve config imports
+sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+
+from app.routes import routes
+from config import UPLOAD_FOLDER
+
+
+def create_app():
+    app = Flask(__name__)
+    CORS(app)
+
+    app.config["UPLOAD_FOLDER"] = UPLOAD_FOLDER
+
+    app.register_blueprint(routes)
+
+    return app
+
+```
+
+### File: .\frontend\.gitignore
+```
+# Logs
+logs
+*.log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+node_modules
+dist
+dist-ssr
+*.local
+
+# Editor directories and files
+.vscode/*
+!.vscode/extensions.json
+.idea
+.DS_Store
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+*.sw?
+
+.env
+
+
+```
+
+### File: .\frontend\eslint.config.js
+```javascript
+import js from '@eslint/js'
+import globals from 'globals'
+import reactHooks from 'eslint-plugin-react-hooks'
+import reactRefresh from 'eslint-plugin-react-refresh'
+import { defineConfig, globalIgnores } from 'eslint/config'
+
+export default defineConfig([
+  globalIgnores(['dist']),
+  {
+    files: ['**/*.{js,jsx}'],
+    extends: [
+      js.configs.recommended,
+      reactHooks.configs.flat.recommended,
+      reactRefresh.configs.vite,
+    ],
+    languageOptions: {
+      ecmaVersion: 2020,
+      globals: globals.browser,
+      parserOptions: {
+        ecmaVersion: 'latest',
+        ecmaFeatures: { jsx: true },
+        sourceType: 'module',
+      },
+    },
+    rules: {
+      'no-unused-vars': ['error', { varsIgnorePattern: '^[A-Z_]' }],
+    },
+  },
+])
+
+```
+
+### File: .\frontend\index.html
+```html
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="AI-powered pomegranate disease detection system. Analyze fruit health using advanced machine learning." />
+    <meta name="theme-color" content="#d33a1a" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <title>Pomegranate Health Analyzer | AI Disease Detection</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>
+
+```
+
+### File: .\frontend\package.json
+```json
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "lint": "eslint .",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "react": "^19.2.0",
+    "react-dom": "^19.2.0"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.39.1",
+    "@types/react": "^19.2.7",
+    "@types/react-dom": "^19.2.3",
+    "@vitejs/plugin-react-swc": "^4.2.2",
+    "eslint": "^9.39.1",
+    "eslint-plugin-react-hooks": "^7.0.1",
+    "eslint-plugin-react-refresh": "^0.4.24",
+    "globals": "^16.5.0",
+    "vite": "^7.3.1"
+  }
+}
+
+```
+
+### File: .\frontend\README.md
+```markdown
+# React + Vite
+
+This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+
+Currently, two official plugins are available:
+
+- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
+- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+
+## React Compiler
+
+The React Compiler is currently not compatible with SWC. See [this issue](https://github.com/vitejs/vite-plugin-react/issues/428) for tracking the progress.
+
+## Expanding the ESLint configuration
+
+If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+
+```
+
+### File: .\frontend\vite.config.js
+```javascript
+import { defineConfig } from 'vite'
+import react from '@vitejs/plugin-react-swc'
+
+// https://vite.dev/config/
+export default defineConfig({
+  plugins: [react()],
+})
+
+```
+
+### File: .\frontend\src\App.css
+```css
+#root {
+  width: 100%;
+  min-height: 100vh;
+}
+
+/* Reset default styles */
+button {
+  border: none;
+  font-family: inherit;
+  cursor: pointer;
+  transition: var(--transition);
+}
+
+button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+button:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+input, select {
+  font-family: inherit;
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideInDown {
+  from {
+    opacity: 0;
+    transform: translateY(-20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.5;
+  }
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/* Global Classes */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+/* Utility Button Classes */
+.btn {
+  padding: 12px 24px;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: var(--transition);
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+
+.btn-primary {
+  background: var(--primary-color);
+  color: white;
+}
+
+.btn-primary:hover:not(:disabled) {
+  background: var(--primary-light);
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+}
+
+.btn-secondary {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.btn-secondary:hover:not(:disabled) {
+  background: var(--secondary-light);
+  box-shadow: var(--shadow-md);
+}
+
+
+```
+
+### File: .\frontend\src\App.jsx
+```javascript
+import Home from "./pages/Home";
+import { LanguageProvider } from "./context/LanguageContext";
+
+export default function App() {
+  return (
+    <LanguageProvider>
+      <Home />
+    </LanguageProvider>
+  );
+}
+
+```
+
+### File: .\frontend\src\index.css
+```css
+:root {
+  --primary-color: #d33a1a;
+  --primary-light: #ff6b35;
+  --primary-dark: #c72a0f;
+  --secondary-color: #2d6a4f;
+  --secondary-light: #52b788;
+  --secondary-dark: #1b4332;
+  --success-color: #52b788;
+  --warning-color: #ff9f43;
+  --danger-color: #d33a1a;
+  --background: linear-gradient(135deg, #f8faf6 0%, #f0f7f4 100%);
+  --text-primary: #1b4332;
+  --text-secondary: #52796f;
+  --border-color: #d0ddd7;
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.08);
+  --shadow-md: 0 8px 16px rgba(0, 0, 0, 0.12);
+  --shadow-lg: 0 12px 24px rgba(0, 0, 0, 0.15);
+  --transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  background: var(--background);
+  color: var(--text-primary);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+#root {
+  min-height: 100vh;
+  width: 100%;
+}
+
+a {
+  color: var(--primary-color);
+  text-decoration: none;
+  transition: var(--transition);
+}
+
+a:hover {
+  color: var(--primary-light);
+  text-decoration: underline;
+}
+
+/* Scrollbar Styling */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--secondary-color);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--primary-color);
+}
+
+
+```
+
+### File: .\frontend\src\main.jsx
+```javascript
+import { StrictMode } from 'react'
+import { createRoot } from 'react-dom/client'
+import './index.css'
+import './App.css'
+import './styles.css'
+import App from './App.jsx'
+
+createRoot(document.getElementById('root')).render(
+  <StrictMode>
+    <App />
+  </StrictMode>,
+)
+
+```
+
+### File: .\frontend\src\styles.css
+```css
+/* Home Page Styling */
+.home {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  width: 100%;
+}
+
+.hero-section {
+  background: linear-gradient(135deg, #d33a1a 0%, #ff6b35 100%);
+  padding: 80px 20px;
+  text-align: center;
+  position: relative;
+  overflow: hidden;
+  animation: slideInDown 0.8s ease-out;
+}
+
+.hero-section::before {
+  content: '';
+  position: absolute;
+  width: 400px;
+  height: 400px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  top: -100px;
+  right: -100px;
+  animation: float 6s ease-in-out infinite;
+}
+
+.hero-section::after {
+  content: '';
+  position: absolute;
+  width: 300px;
+  height: 300px;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  bottom: -50px;
+  left: -50px;
+  animation: float 6s ease-in-out infinite 1s;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.hero-icon {
+  font-size: 6rem;
+  margin-bottom: 20px;
+  animation: bounce 2s ease-in-out infinite;
+}
+
+/* Pomegranate Image - Exact Illustration */
+.pomegranate-img {
+  width: 220px;
+  height: auto;
+  max-width: 100%;
+  margin-bottom: 20px;
+  animation: bounce 2s ease-in-out infinite;
+  filter: drop-shadow(0 10px 30px rgba(0, 0, 0, 0.15));
+  object-fit: contain;
+}
+
+@keyframes bounce {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-20px); }
+}
+
+.hero-title {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: white;
+  margin-bottom: 15px;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+}
+
+.hero-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+  margin-bottom: 0;
+}
+
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 60px 20px;
+  flex: 1;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Language Select */
+.language-select {
+  margin-bottom: 40px;
+  text-align: right;
+  animation: fadeIn 0.6s ease-out;
+}
+
+.language-label {
+  display: inline-block;
+  font-size: 1rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin-right: 12px;
+}
+
+.language-dropdown {
+  padding: 10px 16px;
+  border: 2px solid var(--border-color);
+  border-radius: 8px;
+  background: white;
+  color: var(--text-primary);
+  font-size: 1rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: var(--transition);
+  box-shadow: var(--shadow-sm);
+}
+
+.language-dropdown:hover {
+  border-color: var(--primary-color);
+  box-shadow: var(--shadow-md);
+}
+
+.language-dropdown:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 3px rgba(211, 58, 26, 0.1);
+}
+
+/* Upload Form */
+.upload-form {
+  animation: fadeIn 0.8s ease-out;
+}
+
+.upload-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+  margin-bottom: 30px;
+  align-items: center;
+}
+
+.upload-box {
+  position: relative;
+  padding: 40px 20px;
+  border: 3px dashed var(--primary-color);
+  border-radius: 16px;
+  background: rgba(211, 58, 26, 0.05);
+  cursor: pointer;
+  transition: var(--transition);
+  overflow: hidden;
+}
+
+.upload-box::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(211, 58, 26, 0.05);
+  transition: var(--transition);
+}
+
+.upload-box:hover {
+  border-color: var(--primary-light);
+  background: rgba(211, 58, 26, 0.1);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.upload-box:hover::before {
+  left: 100%;
+}
+
+.file-label {
+  cursor: pointer;
+  display: block;
+  z-index: 1;
+  position: relative;
+}
+
+.file-input {
+  display: none;
+}
+
+.upload-icon {
+  font-size: 3rem;
+  margin-bottom: 15px;
+  filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.1));
+}
+
+.upload-text {
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 10px 0;
+}
+
+.upload-hint {
+  font-size: 0.9rem;
+  color: var(--text-secondary);
+  margin: 0;
+}
+
+.preview-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: white;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  animation: fadeIn 0.4s ease-out;
+}
+
+.preview-image {
+  max-width: 100%;
+  max-height: 300px;
+  object-fit: contain;
+  display: block;
+}
+
+/* Button Group */
+.button-group {
+  display: flex;
+  gap: 12px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+
+.btn-analyze,
+.btn-clear {
+  padding: 14px 32px;
+  border-radius: 8px;
+  font-size: 1.05rem;
+  font-weight: 600;
+  border: none;
+  cursor: pointer;
+  transition: var(--transition);
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  box-shadow: var(--shadow-md);
+}
+
+.btn-analyze {
+  background: linear-gradient(135deg, var(--primary-color) 0%, var(--primary-light) 100%);
+  color: white;
+}
+
+.btn-analyze:hover:not(:disabled) {
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-analyze:active:not(:disabled) {
+  transform: translateY(-1px);
+}
+
+.btn-analyze:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.btn-clear {
+  background: var(--secondary-color);
+  color: white;
+}
+
+.btn-clear:hover {
+  background: var(--secondary-light);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-lg);
+}
+
+.btn-clear:active {
+  transform: translateY(-1px);
+}
+
+.spinner-small {
+  width: 16px;
+  height: 16px;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  border-top: 2px solid white;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  display: inline-block;
+}
+
+/* Error Message */
+.error-message {
+  color: var(--danger-color);
+  background: rgba(211, 58, 26, 0.1);
+  padding: 12px 16px;
+  border-radius: 8px;
+  border-left: 4px solid var(--danger-color);
+  margin-bottom: 20px;
+  font-weight: 500;
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Result Card */
+.result-card {
+  margin-top: 50px;
+  padding: 40px;
+  background: white;
+  border-radius: 16px;
+  box-shadow: var(--shadow-lg);
+  border-top: 4px solid var(--primary-color);
+  animation: fadeIn 0.6s ease-out;
+}
+
+.result-card.healthy {
+  border-top-color: var(--success-color);
+  background: linear-gradient(135deg, white 0%, rgba(82, 183, 136, 0.05) 100%);
+}
+
+.result-card.critical {
+  border-top-color: var(--danger-color);
+  background: linear-gradient(135deg, white 0%, rgba(211, 58, 26, 0.05) 100%);
+}
+
+.result-card.warning {
+  border-top-color: var(--warning-color);
+  background: linear-gradient(135deg, white 0%, rgba(255, 159, 67, 0.05) 100%);
+}
+
+.result-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 30px;
+  padding-bottom: 20px;
+  border-bottom: 2px solid var(--border-color);
+  gap: 20px;
+}
+
+.disease-name {
+  font-size: 2rem;
+  color: var(--text-primary);
+  margin: 0;
+  flex: 1;
+}
+
+.confidence {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 16px 24px;
+  background: white;
+  border-radius: 12px;
+  min-width: 120px;
+  box-shadow: var(--shadow-sm);
+  border: 2px solid var(--border-color);
+}
+
+.confidence.high {
+  border-color: var(--success-color);
+  background: rgba(82, 183, 136, 0.1);
+}
+
+.confidence.medium {
+  border-color: var(--warning-color);
+  background: rgba(255, 159, 67, 0.1);
+}
+
+.confidence.low {
+  border-color: var(--danger-color);
+  background: rgba(211, 58, 26, 0.1);
+}
+
+.confidence-value {
+  font-size: 1.8rem;
+  font-weight: 800;
+  color: var(--text-primary);
+}
+
+.confidence-label {
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  margin-top: 4px;
+}
+
+.result-sections {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+}
+
+.result-section {
+  padding: 24px;
+  background: white;
+  border-radius: 12px;
+  border: 1px solid var(--border-color);
+  transition: var(--transition);
+}
+
+.result-section:hover {
+  transform: translateY(-4px);
+  box-shadow: var(--shadow-md);
+  border-color: var(--primary-color);
+}
+
+.section-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  display: block;
+}
+
+.result-section h3 {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+.result-section p {
+  font-size: 0.95rem;
+  color: var(--text-secondary);
+  line-height: 1.6;
+  margin: 0;
+}
+
+.cause-section {
+  border-top: 3px solid #3b82f6;
+}
+
+.prevention-section {
+  border-top: 3px solid #10b981;
+}
+
+.remedy-section {
+  border-top: 3px solid #f59e0b;
+}
+
+/* Loader */
+.loader-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 60px 20px;
+  gap: 20px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid rgba(211, 58, 26, 0.2);
+  border-top: 4px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+.loader-text {
+  font-size: 1.1rem;
+  color: var(--text-primary);
+  font-weight: 600;
+  margin: 0;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1.1rem;
+  }
+
+  .hero-icon {
+    font-size: 4rem;
+  }
+
+  .upload-container {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .result-sections {
+    grid-template-columns: 1fr;
+  }
+
+  .result-header {
+    flex-direction: column;
+  }
+
+  .language-select {
+    text-align: center;
+    margin-bottom: 30px;
+  }
+
+  .language-label {
+    display: block;
+    margin-bottom: 10px;
+  }
+
+  .language-dropdown {
+    width: 100%;
+    max-width: 100%;
+  }
+
+  .container {
+    padding: 30px 15px;
+  }
+
+  .upload-box {
+    padding: 30px 15px;
+  }
+
+  .result-card {
+    padding: 24px;
+  }
+
+  .button-group {
+    flex-direction: column;
+  }
+
+  .btn-analyze,
+  .btn-clear {
+    width: 100%;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+
+  .hero-subtitle {
+    font-size: 1rem;
+  }
+
+  .hero-icon {
+    font-size: 3rem;
+  }
+
+  .disease-name {
+    font-size: 1.5rem;
+  }
+
+  .result-section h3 {
+    font-size: 1rem;
+  }
+
+  .result-section p {
+    font-size: 0.9rem;
+  }
+
+  .upload-icon {
+    font-size: 2.5rem;
+  }
+
+  .upload-text {
+    font-size: 1rem;
+  }
+
+  .confidence {
+    min-width: 100px;
+    padding: 12px 16px;
+  }
+
+  .confidence-value {
+    font-size: 1.5rem;
+  }
+
+  .result-card {
+    padding: 16px;
+  }
+
+  .hero-section {
+    padding: 50px 15px;
+  }
+}
+
+/* Print Styles */
+@media print {
+  .language-select,
+  .upload-form,
+  .button-group {
+    display: none;
+  }
+
+  .result-card {
+    box-shadow: none;
+    border: 1px solid #ccc;
+  }
+}
+
+```
+
+### File: .\frontend\src\components\Footer.jsx
+```javascript
+import "../styles/Footer.css";
+
+export default function Footer() {
+  return (
+    <footer className="footer">
+      <div className="footer-content">
+        {/* Accuracy Metrics */}
+        <div className="footer-accuracy">
+          <div className="accuracy-badge">
+            <span className="badge-label">Model Accuracy</span>
+            <span className="badge-value">99.5%</span>
+            <span className="badge-unit">mAP</span>
+          </div>
+          <p className="accuracy-subtitle">Powered by YOLOv11 • Python • React • Flask</p>
+        </div>
+
+        {/* Divider */}
+        <div className="footer-divider"></div>
+
+        {/* Disclaimers */}
+        <div className="footer-disclaimers">
+          <p className="disclaimer-item disclaimer-main">
+            The model achieves near-perfect accuracy but may show minor ambiguity in visually overlapping diseases, reflecting real-world agricultural uncertainty.
+          </p>
+          <p className="disclaimer-item disclaimer-warning">
+            ⚠️ AI-assisted predictions only. Consult agricultural experts before applying treatments.
+          </p>
+        </div>
+      </div>
+
+      {/* Bottom Bar */}
+      <div className="footer-bar">
+        <p>© 2026 Pomegranate Disease Detection</p>
+      </div>
+    </footer>
+  );
+}
+
+```
+
+### File: .\frontend\src\components\LanguageSelect.jsx
+```javascript
+import { useLanguage } from "../hooks/useLanguage";
+
+export default function LanguageSelect() {
+  const { language, setLanguage } = useLanguage();
+
+  return (
+    <div className="language-select">
+      <label htmlFor="language-select" className="language-label">🌐 Language</label>
+      <select
+        id="language-select"
+        value={language}
+        onChange={(e) => setLanguage(e.target.value)}
+        className="language-dropdown"
+      >
+        <option value="en">🇬🇧 English</option>
+        <option value="hi">🇮🇳 Hindi</option>
+        <option value="mr">🇮🇳 Marathi</option>
+      </select>
+    </div>
+  );
+}
+
+```
+
+### File: .\frontend\src\components\Loader.jsx
+```javascript
+export default function Loader() {
+  return (
+    <div className="loader-container">
+      <div className="spinner"></div>
+      <p className="loader-text">Analyzing image...</p>
+    </div>
+  );
+}
+
+```
+
+### File: .\frontend\src\components\ResultCard.jsx
+```javascript
+export default function ResultCard({ result }) {
+  if (!result) return null;
+
+  const getDiseaseColor = (disease) => {
+    if (disease === "Healthy") return "healthy";
+    if (disease === "Bacterial_Blight") return "critical";
+    return "warning";
+  };
+
+  const confidenceColor = result.confidence > 80 ? "high" : result.confidence > 60 ? "medium" : "low";
+
+  // Use disease name from response if available, otherwise fallback to default
+  const diseaseName = result.diseaseName || result.disease?.replace(/_/g, " ");
+
+  return (
+    <div className={`result-card ${getDiseaseColor(result.disease)}`}>
+      <div className="result-header">
+        <h2 className="disease-name">{diseaseName}</h2>
+        <div className={`confidence ${confidenceColor}`}>
+          <span className="confidence-value">{result.confidence}%</span>
+          <span className="confidence-label">Confidence</span>
+        </div>
+      </div>
+
+      <div className="result-sections">
+        <div className="result-section cause-section">
+          <div className="section-icon">🔍</div>
+          <h3>Cause</h3>
+          <p>{result.cause}</p>
+        </div>
+
+        <div className="result-section prevention-section">
+          <div className="section-icon">🛡️</div>
+          <h3>Prevention</h3>
+          <p>{result.prevention}</p>
+        </div>
+
+        <div className="result-section remedy-section">
+          <div className="section-icon">💊</div>
+          <h3>Remedy</h3>
+          <p>{result.remedy}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
+```
+
+### File: .\frontend\src\components\UploadForm.jsx
+```javascript
+import { useState } from "react";
+import { predictDisease } from "../services/api";
+import { useLanguage } from "../hooks/useLanguage";
+
+export default function UploadForm({ onResult }) {
+  const [file, setFile] = useState(null);
+  const [preview, setPreview] = useState(null);
+  const [loading, setLoading] = useState(false);
+  const [error, setError] = useState(null);
+  const { language } = useLanguage();
+
+  const handleFileChange = (e) => {
+    const selectedFile = e.target.files[0];
+    if (selectedFile) {
+      // Validate file type
+      if (!selectedFile.type.startsWith("image/")) {
+        setError("Please select a valid image file");
+        return;
+      }
+      
+      // Validate file size (max 10MB)
+      if (selectedFile.size > 10 * 1024 * 1024) {
+        setError("File size must be less than 10MB");
+        return;
+      }
+
+      setFile(selectedFile);
+      setError(null);
+
+      // Create preview
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        setPreview(reader.result);
+      };
+      reader.readAsDataURL(selectedFile);
+    }
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    if (!file) {
+      setError("Please select an image first");
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+    try {
+      const result = await predictDisease(file, language);
+      onResult(result);
+      setFile(null);
+      setPreview(null);
+    } catch (err) {
+      setError(err.message || "Failed to analyze image. Please try again.");
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const handleClear = () => {
+    setFile(null);
+    setPreview(null);
+    setError(null);
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="upload-form">
+      <div className="upload-container">
+        <div className="upload-box">
+          <label htmlFor="file-input" className="file-label">
+            <div className="upload-icon">📸</div>
+            <p className="upload-text">
+              {preview ? "Image Selected ✓" : "Click or drag to upload image"}
+            </p>
+            <p className="upload-hint">PNG, JPG, JPEG (Max 10MB)</p>
+          </label>
+          <input
+            id="file-input"
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="file-input"
+            disabled={loading}
+          />
+        </div>
+
+        {preview && (
+          <div className="preview-container">
+            <img src={preview} alt="Preview" className="preview-image" />
+          </div>
+        )}
+      </div>
+
+      {error && <p className="error-message">{error}</p>}
+
+      <div className="button-group">
+        <button
+          type="submit"
+          disabled={loading || !file}
+          className="btn-analyze"
+        >
+          {loading ? (
+            <>
+              <span className="spinner-small"></span>
+              Analyzing...
+            </>
+          ) : (
+            "Analyze Image"
+          )}
+        </button>
+        {file && (
+          <button type="button" onClick={handleClear} className="btn-clear">
+            Clear
+          </button>
+        )}
+      </div>
+    </form>
+  );
+}
+
+```
+
+### File: .\frontend\src\context\LanguageContext.jsx
+```javascript
+import { createContext, useState } from "react";
+
+const LanguageContext = createContext();
+
+export function LanguageProvider({ children }) {
+  const [language, setLanguage] = useState("en");
+
+  return (
+    <LanguageContext.Provider value={{ language, setLanguage }}>
+      {children}
+    </LanguageContext.Provider>
+  );
+}
+
+export { LanguageContext };
+
+```
+
+### File: .\frontend\src\hooks\useLanguage.js
+```javascript
+import { useContext } from "react";
+import { LanguageContext } from "../context/LanguageContext";
+
+export function useLanguage() {
+  const context = useContext(LanguageContext);
+  if (!context) {
+    throw new Error("useLanguage must be used within LanguageProvider");
+  }
+  return context;
+}
+
+```
+
+### File: .\frontend\src\pages\Home.jsx
+```javascript
+import { useState } from "react";
+import UploadForm from "../components/UploadForm";
+import ResultCard from "../components/ResultCard";
+import LanguageSelect from "../components/LanguageSelect";
+import Footer from "../components/Footer";
+
+export default function Home() {
+  const [result, setResult] = useState(null);
+
+  return (
+    <div className="home">
+      <header className="hero-section">
+        <div className="hero-content">
+          <img src="/src/assets/pomegranate.png" alt="Pomegranate" className="pomegranate-img" />
+          <h1 className="hero-title">Pomegranate Health Analyzer</h1>
+          <p className="hero-subtitle">
+            AI-powered disease detection for pomegranate fruits
+          </p>
+        </div>
+      </header>
+
+      <div className="container">
+        <LanguageSelect />
+        <UploadForm onResult={setResult} />
+        {result && <ResultCard result={result} />}
+      </div>
+
+      <Footer />
+    </div>
+  );
+}
+
+```
+
+### File: .\frontend\src\services\api.js
+```javascript
+const API_BASE_URL = import.meta.env.VITE_API_URL || "http://localhost:5000";
+
+export async function predictDisease(file, language = "en") {
+  const formData = new FormData();
+  formData.append("file", file);
+  formData.append("language", language);
+
+  const response = await fetch(`${API_BASE_URL}/predict`, {
+    method: "POST",
+    body: formData
+  });
+
+  if (!response.ok) {
+    const error = await response.json().catch(() => ({}));
+    throw new Error(error.error || "Prediction failed");
+  }
+
+  return response.json();
+}
+
+```
+
+### File: .\frontend\src\styles\Footer.css
+```css
+/* Footer Styling */
+.footer {
+  background: linear-gradient(135deg, #1b4332 0%, #2d6a4f 50%, #1b4332 100%);
+  color: white;
+  margin-top: auto;
+  border-top: 4px solid #d33a1a;
+  box-shadow: 0 -8px 24px rgba(0, 0, 0, 0.15);
+  flex-shrink: 0;
+}
+
+.footer-content {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 60px 30px;
+}
+
+/* Accuracy Badge Section */
+.footer-accuracy {
+  text-align: center;
+  margin-bottom: 40px;
+}
+
+.accuracy-badge {
+  display: inline-flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, rgba(211, 58, 26, 0.15) 0%, rgba(255, 107, 53, 0.15) 100%);
+  border: 2px solid #ff6b35;
+  border-radius: 16px;
+  padding: 24px 48px;
+  margin-bottom: 16px;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.accuracy-badge::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+  transition: left 0.5s ease;
+}
+
+.accuracy-badge:hover::before {
+  left: 100%;
+}
+
+.accuracy-badge:hover {
+  border-color: #d33a1a;
+  box-shadow: 0 8px 24px rgba(211, 58, 26, 0.2);
+  transform: translateY(-4px);
+}
+
+.badge-label {
+  font-size: 0.85rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #ff9f43;
+  opacity: 0.9;
+}
+
+.badge-value {
+  font-size: 2.5rem;
+  font-weight: 800;
+  background: linear-gradient(135deg, #ff6b35 0%, #d33a1a 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-family: 'Courier New', monospace;
+}
+
+.badge-unit {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #52b788;
+  opacity: 0.85;
+  letter-spacing: 0.5px;
+}
+
+.accuracy-subtitle {
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  margin-bottom: 0;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+}
+
+/* Footer Divider */
+.footer-divider {
+  height: 2px;
+  background: linear-gradient(90deg, 
+    transparent, 
+    #ff6b35 10%, 
+    #52b788 50%, 
+    #ff9f43 75%, 
+    transparent);
+  margin: 40px 0;
+  border-radius: 2px;
+}
+
+/* Disclaimers Section */
+.footer-disclaimers {
+  text-align: center;
+}
+
+.disclaimer-item {
+  font-size: 0.95rem;
+  line-height: 1.7;
+  margin-bottom: 20px;
+  padding: 16px 20px;
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.disclaimer-main {
+  background: rgba(82, 183, 136, 0.15);
+  border-left: 4px solid #52b788;
+  color: rgba(255, 255, 255, 0.95);
+  font-style: italic;
+}
+
+.disclaimer-main:hover {
+  background: rgba(82, 183, 136, 0.25);
+  border-left-color: #2d6a4f;
+  transform: translateX(8px);
+}
+
+.disclaimer-warning {
+  background: rgba(255, 159, 67, 0.2);
+  border-left: 4px solid #ff9f43;
+  color: rgba(255, 255, 255, 0.95);
+  font-weight: 500;
+}
+
+.disclaimer-warning:hover {
+  background: rgba(255, 159, 67, 0.3);
+  border-left-color: #ff6b35;
+  transform: translateX(8px);
+}
+
+/* Bottom Bar */
+.footer-bar {
+  background: linear-gradient(90deg, rgba(211, 58, 26, 0.1) 0%, rgba(82, 183, 136, 0.1) 100%);
+  padding: 20px 30px;
+  text-align: center;
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.footer-bar p {
+  font-size: 0.9rem;
+  color: rgba(255, 255, 255, 0.75);
+  margin: 0;
+  letter-spacing: 0.3px;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .footer {
+    margin-top: 60px;
+    padding-bottom: 0;
+  }
+
+  .footer-content {
+    padding: 40px 20px;
+  }
+
+  .accuracy-badge {
+    padding: 20px 30px;
+  }
+
+  .badge-value {
+    font-size: 2rem;
+  }
+
+  .badge-label,
+  .badge-unit {
+    font-size: 0.8rem;
+  }
+
+  .accuracy-subtitle {
+    font-size: 0.9rem;
+  }
+
+  .disclaimer-item {
+    font-size: 0.9rem;
+    padding: 12px 16px;
+    margin-bottom: 16px;
+  }
+
+  .footer-divider {
+    margin: 30px 0;
+  }
+
+  .footer-bar p {
+    font-size: 0.85rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-content {
+    padding: 30px 15px;
+  }
+
+  .accuracy-badge {
+    padding: 16px 20px;
+  }
+
+  .badge-value {
+    font-size: 1.8rem;
+  }
+
+  .badge-label,
+  .badge-unit {
+    font-size: 0.75rem;
+  }
+
+  .accuracy-subtitle {
+    font-size: 0.85rem;
+  }
+
+  .disclaimer-item {
+    font-size: 0.85rem;
+    padding: 10px 12px;
+  }
+
+  .footer-divider {
+    margin: 25px 0;
+  }
+
+  .footer-bar {
+    padding: 16px 15px;
+  }
+
+  .footer-bar p {
+    font-size: 0.8rem;
+  }
+}
+
+```
+

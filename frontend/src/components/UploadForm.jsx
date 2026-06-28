@@ -46,8 +46,9 @@ export default function UploadForm({ onResult }) {
     setLoading(true);
     setError(null);
     try {
+      const currentPreview = preview;
       const result = await predictDisease(file, language);
-      onResult(result);
+      onResult(result, currentPreview);
       setFile(null);
       setPreview(null);
     } catch (err) {

@@ -17,3 +17,6 @@ export async function predictDisease(file, language = "en") {
 
   return response.json();
 }
+
+
+

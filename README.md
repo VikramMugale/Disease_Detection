@@ -1,6 +1,6 @@
 # Pomegranate Health Analyzer
 
-An AI-powered web application for detecting diseases in pomegranate fruits using computer vision and machine learning.
+An AI-powered React Flask app for detecting diseases in pomegranate fruits using computer vision and machine learning.
 
 ## 🌟 Features
 
@@ -30,6 +30,24 @@ An AI-powered web application for detecting diseases in pomegranate fruits using
 - Python 3.8+
 - Node.js 16+
 - Git
+
+### Model Setup
+
+**Note**: The trained YOLOv11 model files (`best.pt` and `best0.pt`) are not included in this repository due to file size limitations. You have two options:
+
+1. **Download Pre-trained Models** (Recommended):
+   - Download the YOLOv11 model file from: [https://drive.google.com/file/d/1CudrLkLOLa5zNZFZiVjtqSPSHUdfZ7XM/view?usp=drive_link](https://drive.google.com/file/d/1CudrLkLOLa5zNZFZiVjtqSPSHUdfZ7XM/view?usp=drive_link)
+   - Place the downloaded `best.pt` file in the `backend/model/` directory
+   - If you have an alternative model (`best0.pt`), place it there as well
+
+2. **Train Your Own Model**:
+   - Prepare a dataset of pomegranate images with disease annotations
+   - Use Ultralytics to train a YOLOv11 model:
+     ```bash
+     pip install ultralytics
+     yolo train data=your_dataset.yaml model=yolo11n.pt epochs=100
+     ```
+   - Save the trained model as `best.pt` in `backend/model/`
 
 ### Backend Setup
 

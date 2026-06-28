@@ -22,15 +22,29 @@ def load_model():
     return _model
 
 
-def predict_image(image_path):
+def predict_image(image_or_path, conf=0.4):
     model = load_model()
-    results = model.predict(image_path, conf=0.4, verbose=False)[0]
+    results = model.predict(image_or_path, conf=conf, verbose=False)[0]
+
+    # Generate annotated image
+    annotated_data_url = None
+    try:
+        import cv2
+        import base64
+        annotated_img = results.plot()
+        _, buffer = cv2.imencode('.jpg', annotated_img)
+        annotated_base64 = base64.b64encode(buffer).decode('utf-8')
+        annotated_data_url = f"data:image/jpeg;base64,{annotated_base64}"
+    except Exception as e:
+        print(f"Error generating annotated image: {e}")
 
     # No detections
     if len(results.boxes) == 0:
         return {
             "label": "Unknown",
-            "confidence": 0.0
+            "confidence": 0.0,
+            "predictions": [],
+            "annotatedImage": annotated_data_url
         }
 
     # Prefer the detection with highest confidence instead of taking the first box
@@ -50,6 +64,8 @@ def predict_image(image_path):
         # Fallback to first box if something unexpected in results shape
         cls = int(results.boxes.cls[0])
         conf = float(results.boxes.conf[0])
+
+
 
     # Resolve label name for best prediction
     try:
@@ -93,5 +109,7 @@ def predict_image(image_path):
     return {
         "label": label,
         "confidence": round(conf * 100, 2),
-        "predictions": preds
+        "predictions": preds,
+        "annotatedImage": annotated_data_url
     }
+

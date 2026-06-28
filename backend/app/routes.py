@@ -42,9 +42,10 @@ def predict():
     filepath = os.path.join(UPLOAD_FOLDER, filename)
     file.save(filepath)
 
-    prediction = predict_image(filepath)
+    prediction = predict_image(filepath, conf=0.45) # Raised threshold from 0.40 to 0.45 for static uploads to increase robustness
     label = prediction["label"]
     confidence = prediction["confidence"]
+    annotated_image = prediction.get("annotatedImage")
 
     disease_info = DISEASE_DB.get(label, {})
     lang_info = disease_info.get(language, {})
@@ -56,7 +57,13 @@ def predict():
         "cause": lang_info.get("cause", "N/A"),
         "prevention": lang_info.get("prevention", "N/A"),
         "remedy": lang_info.get("remedy", "N/A"),
-        "language": language
+        "language": language,
+        "annotatedImage": annotated_image,
+        "translations": disease_info
     }
 
     return jsonify(response)
+
+
+
+

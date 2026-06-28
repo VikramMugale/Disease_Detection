@@ -1,19 +1,19 @@
 {
   "Healthy": {
     "en": {
-      "name": "Healthy",
+      "name": "Healthy Fruit",
       "cause": "The fruit is healthy with no visible disease.",
       "prevention": "Maintain proper irrigation and balanced nutrition.",
       "remedy": "No treatment required."
     },
     "hi": {
-      "name": "स्वस्थ",
+      "name": "स्वस्थ फल",
       "cause": "फल स्वस्थ है और कोई रोग नहीं है।",
       "prevention": "सही सिंचाई और पोषण बनाए रखें।",
       "remedy": "कोई उपचार आवश्यक नहीं।"
     },
     "mr": {
-      "name": "निरोगी",
+      "name": "निरोगी फळ",
       "cause": "फळ निरोगी आहे.",
       "prevention": "योग्य पाणी व पोषण राखा.",
       "remedy": "उपचाराची गरज नाही."
@@ -22,19 +22,19 @@
 
   "Bacterial_Blight": {
     "en": {
-      "name": "Bacterial Blight",
+      "name": "Bacterial Blight (Telya)",
       "cause": "Caused by bacterial infection spreading through water and wounds.",
       "prevention": "Avoid water splash and prune infected branches.",
       "remedy": "Apply copper-based bactericide spray."
     },
     "hi": {
-      "name": "बैक्टीरियल ब्लाइट",
+      "name": "जीवाणु झुलसा (तेल्या रोग)",
       "cause": "यह बैक्टीरिया से फैलने वाला रोग है।",
       "prevention": "पानी के छींटों से बचें और संक्रमित शाखाएं हटाएं।",
       "remedy": "कॉपर आधारित दवा का छिड़काव करें।"
     },
     "mr": {
-      "name": "जीवाणु झुलशा",
+      "name": "तेल्या रोग (जीवाणूजन्य करपा)",
       "cause": "हा जीवाणूजन्य रोग आहे.",
       "prevention": "पाण्याचे उडणे टाळा व संक्रमित फांद्या काढा.",
       "remedy": "कॉपर फवारणी करा."
@@ -43,19 +43,19 @@
 
   "Alternaria": {
     "en": {
-      "name": "Alternaria",
+      "name": "Alternaria (Black Spot)",
       "cause": "Fungal infection caused by humid weather.",
       "prevention": "Ensure air circulation and remove infected leaves.",
       "remedy": "Spray fungicide like Mancozeb."
     },
     "hi": {
-      "name": "अल्टरनेरिया",
+      "name": "अल्टरनेरिया (काले धब्बे)",
       "cause": "नमी के कारण फंगल संक्रमण।",
       "prevention": "हवा का प्रवाह रखें और संक्रमित पत्तियां हटाएं।",
       "remedy": "मैनकोजेब फफूंदनाशक का उपयोग करें।"
     },
     "mr": {
-      "name": "अल्टरनेरिया",
+      "name": "खरडा रोग (अल्टरनेरिया काळे ठिपके)",
       "cause": "आर्द्रतेमुळे बुरशीजन्य रोग.",
       "prevention": "हवेचा प्रवाह ठेवा.",
       "remedy": "मॅन्कोझेब फवारणी करा."
@@ -70,13 +70,13 @@
       "remedy": "Apply systemic fungicide."
     },
     "hi": {
-      "name": "एन्थ्रेक्नोज",
+      "name": "एन्थ्रेक्नोज़ (टहनी मार)",
       "cause": "फंगल बीजाणु फल को संक्रमित करते हैं।",
       "prevention": "बाग सूखी रखें और गिरे अवशेष हटाएं।",
       "remedy": "सिस्टमिक फफूंदनाशक उपयोग करें।"
     },
     "mr": {
-      "name": "कला ओत",
+      "name": "काळा करपा (अँथ्रॅकनोज)",
       "cause": "बुरशीमुळे संसर्ग होतो.",
       "prevention": "बाग कोरडी ठेवा.",
       "remedy": "सिस्टमिक फवारणी करा."
@@ -85,19 +85,19 @@
 
   "Cercospora": {
     "en": {
-      "name": "Cercospora",
+      "name": "Cercospora Leaf Spot",
       "cause": "Leaf spot fungus infection.",
       "prevention": "Avoid overcrowding plants.",
       "remedy": "Use protective fungicide spray."
     },
     "hi": {
-      "name": "सर्कोस्पोरा",
+      "name": "सर्कोस्पोरा पत्ती धब्बा",
       "cause": "पत्ती धब्बा फंगल रोग।",
       "prevention": "पौधों की दूरी बनाए रखें।",
       "remedy": "फफूंदनाशक छिड़काव करें।"
     },
     "mr": {
-      "name": "सर्कोस्पोरा",
+      "name": "डांबरी रोग (सर्कोस्पोरा ठिपके)",
       "cause": "पानांवरील बुरशीजन्य रोग.",
       "prevention": "झाडांमध्ये अंतर ठेवा.",
       "remedy": "फवारणी करा."
@@ -112,16 +112,37 @@
       "remedy": "No agricultural advice available."
     },
     "hi": {
-      "name": "अनार नहीं",
+      "name": "अनार नहीं है (Not a Pomegranate)",
       "cause": "यह अनार का फल नहीं है।",
       "prevention": "केवल अनार की तस्वीर अपलोड करें।",
       "remedy": "कोई सलाह उपलब्ध नहीं।"
     },
     "mr": {
-      "name": "डाळिंब नाही",
+      "name": "डाळिंब नाही (Not a Pomegranate)",
       "cause": "हे डाळिंब नाही.",
       "prevention": "फक्त डाळिंबाचा फोटो अपलोड करा.",
       "remedy": "सल्ला उपलब्ध नाही."
+    }
+  },
+
+  "Unknown": {
+    "en": {
+      "name": "Unknown Object",
+      "cause": "No pomegranate fruit was detected or recognized in the image.",
+      "prevention": "Ensure the fruit is well-lit, fully visible, and placed in the center of the frame.",
+      "remedy": "Please try scanning or uploading another clear image of a pomegranate fruit."
+    },
+    "hi": {
+      "name": "अत्याधिक अस्पष्ट / अज्ञात (Unknown)",
+      "cause": "छवि में किसी अनार के फल की पहचान नहीं हो सकी।",
+      "prevention": "सुनिश्चित करें कि फल अच्छी रोशनी में, पूरी तरह से दिखाई दे रहा हो, और फ्रेम के केंद्र में हो।",
+      "remedy": "कृपया अनार के फल की एक और स्पष्ट तस्वीर अपलोड करने या खींचने का प्रयास करें।"
+    },
+    "mr": {
+      "name": "अतिशय अस्पष्ट / अपरिचित (Unknown)",
+      "cause": "चित्रामध्ये डाळिंबाचे फळ ओळखता आले नाही.",
+      "prevention": "फळ चांगल्या प्रकाशात, पूर्णपणे दृश्यमान आणिि फ्रेमच्या मध्यभागी असल्याची खात्री करा.",
+      "remedy": "कृपया डाळिंबाचे दुसरे स्पष्ट चित्र अपलोड करण्याचा किंवा काढण्याचा प्रयत्न करा."
     }
   }
 }
