@@ -48,6 +48,4 @@ Thumbs.db
 
 # Model files (optional - comment out if you want to track them)
 model/*.pt
-!model/best.pt
-models/*.pt
-!models/best.pt
+
