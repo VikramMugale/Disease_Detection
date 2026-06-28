@@ -1,1 +1,7 @@
 /backend.zip
+
+# Model files
+**/model/*.pt
+!**/model/best.pt
+**/models/*.pt
+!**/models/best.pt
