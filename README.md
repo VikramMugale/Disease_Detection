@@ -32,15 +32,7 @@ An AI-powered React Flask app for detecting diseases in pomegranate fruits using
 - Git
 
 ### Model Setup
-
-**Note**: The trained YOLOv11 model files (`best.pt` and `best0.pt`) are not included in this repository due to file size limitations. You have two options:
-
-1. **Download Pre-trained Models** (Recommended):
-   - Download the YOLOv11 model file from: [https://drive.google.com/file/d/1CudrLkLOLa5zNZFZiVjtqSPSHUdfZ7XM/view?usp=drive_link](https://drive.google.com/file/d/1CudrLkLOLa5zNZFZiVjtqSPSHUdfZ7XM/view?usp=drive_link)
-   - Place the downloaded `best.pt` file in the `backend/model/` directory
-   - If you have an alternative model (`best0.pt`), place it there as well
-
-2. **Train Your Own Model**:
+**Train Your Own Model**:
    - Prepare a dataset of pomegranate images with disease annotations
    - Use Ultralytics to train a YOLOv11 model:
      ```bash
@@ -112,12 +104,4 @@ The frontend will start on `http://localhost:5173`
    - Treatment recommendations
 
 ```
-
-## 🤝 Contributing
-
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
 
